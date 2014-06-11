@@ -3,13 +3,15 @@ package nu.gumi.perfume;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class Perfume extends JavaPlugin{
-
+public final class Perfume extends JavaPlugin implements Listener {
+	
 	@Override
 	public void onEnable() {
 		getLogger().info("onEnable has been invoked!");
+		getServer().getPluginManager().registerEvents(new EventListener(this), this);
 	}
 	 
 	@Override
@@ -23,17 +25,15 @@ public final class Perfume extends JavaPlugin{
 			if (!(sender instanceof Player)) {
 				sender.sendMessage("This command can only be run by a player.");
 			} else {
-				if (args.length != 0) {
-			           sender.sendMessage("No arguments allowed!");
-			           return false;
+				if (args.length != 1 || ((!args.equals("on")) && (!args.equals("off")))) {
+					sender.sendMessage("you used the command wrong");
+					return false;
 				} else {
-					Player player = (Player) sender;
-					player.sendMessage("harro");
+					sender.sendMessage("you used the command right");
+					return true;
 				}
 			}
-		}
-		
-		return false; 
+		} 
+		return false;
 	}
-	
 }
