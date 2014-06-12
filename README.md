@@ -1,6 +1,6 @@
-## Perfume
+# Perfume
 A Minecraft plugin that makes you feel pretty.
-#To-do
+## To-do
 - Add star particles that follow your character
 - Increase radius (using GetHighestBlock()?)
 - Random flower variety generator
