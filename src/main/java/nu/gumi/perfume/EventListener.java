@@ -24,6 +24,8 @@ public class EventListener implements Listener {
 	    Block currentBlock = world.getBlockAt(loc);
 	    if (currentBlock.getType() != Material.AIR)
 	    	currentBlock.setType(Material.GRASS);
+	    	loc.setY(loc.getY() + 1);
+	    	currentBlock = world.getBlockAt(loc);
+	    	currentBlock.setType(Material.YELLOW_FLOWER);
 	}
-
 }
