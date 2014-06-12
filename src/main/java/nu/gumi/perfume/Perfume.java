@@ -1,5 +1,8 @@
 package nu.gumi.perfume;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -7,6 +10,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Perfume extends JavaPlugin implements Listener {
+	
+	private Set<Player> perfume = new HashSet<Player>();
 	
 	@Override
 	public void onEnable() {
@@ -36,4 +41,14 @@ public final class Perfume extends JavaPlugin implements Listener {
 		} 
 		return false;
 	}
+	
+	public boolean checkPerfume(Player player) {
+		
+		return true;
+	}
+	
+	public void enablePerfume() {
+		
+	}
+	
 }
