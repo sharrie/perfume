@@ -28,7 +28,13 @@ public class EventListener implements Listener {
 	    World world = loc.getWorld();
 	    Block currentBlock = world.getBlockAt(loc);
 	    
-	    if (currentBlock.getType() != Material.AIR){
+	    if (currentBlock.getType() != Material.AIR && currentBlock.getType() != Material.LONG_GRASS && currentBlock.getType() != Material.WATER 
+	    		&& currentBlock.getType() != Material.STATIONARY_WATER && currentBlock.getType() != Material.STATIONARY_LAVA
+	    		&& currentBlock.getType() != Material.YELLOW_FLOWER && currentBlock.getType() != Material.RED_ROSE && currentBlock.getType() != Material.BED 
+	    		&& currentBlock.getType() != Material.BIRCH_WOOD_STAIRS && currentBlock.getType() != Material.BRICK_STAIRS 
+	    		&& currentBlock.getType() != Material.CHEST && currentBlock.getType() != Material.CROPS
+	    		&& currentBlock.getType() != Material.DARK_OAK_STAIRS && currentBlock.getType() != Material.ACACIA_STAIRS 
+	    		&& currentBlock.getType() != Material.CARPET){
 	    	currentBlock.setType(Material.GRASS);
 	    	loc.setY(loc.getY() + 1);
 	    	currentBlock = world.getBlockAt(loc);
@@ -37,3 +43,4 @@ public class EventListener implements Listener {
 	    }
 	}
 }
+

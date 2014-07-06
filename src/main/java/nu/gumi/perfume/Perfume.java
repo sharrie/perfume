@@ -30,11 +30,12 @@ public final class Perfume extends JavaPlugin implements Listener {
 			if (!(sender instanceof Player)) {
 				sender.sendMessage("This command can only be run by a player.");
 			} else {
-				if (args.length != 1 || ((!args.equals("on")) && (!args.equals("off")))) {
-					sender.sendMessage("you used the command wrong");
+				if (args.length != 0) {
+					sender.sendMessage("Try the command again.");
 					return false;
 				} else {
-					sender.sendMessage("you used the command right");
+					Player player = (Player)sender;
+					enablePerfume(player, !checkPerfume(player));
 					return true;
 				}
 			}
@@ -43,12 +44,17 @@ public final class Perfume extends JavaPlugin implements Listener {
 	}
 	
 	public boolean checkPerfume(Player player) {
-		
-		return true;
+		return perfume.contains(player);
 	}
 	
-	public void enablePerfume() {
-		
+	public void enablePerfume(Player player, boolean on) {
+		if(on){
+			perfume.add(player);
+			player.sendMessage("Perfume is enabled.");
+		} else {
+			perfume.remove(player);
+			player.sendMessage("Perfume is disabled.");
+		}
 	}
 	
 }
